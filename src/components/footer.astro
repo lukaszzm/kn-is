@@ -1,0 +1,72 @@
+---
+import Column from "@/components/ui/column.astro";
+import Logo from "@/components/ui/logo.astro";
+
+import { footerConfig } from "@/config/footer";
+import { Icon } from "astro-icon/components";
+
+const COPYRIGHT_SIGN = "©";
+const COPYRIGHT_SEPARATOR = " • ";
+---
+
+<footer class="border-border bg-muted/20 border-t px-4 pt-12 pb-6">
+  <div class="container mx-auto max-w-6xl">
+    <div class="grid gap-8 md:grid-cols-3">
+      <div class="space-y-4">
+        <Logo />
+        <div class="text-muted-foreground space-y-4 text-sm">
+          <p class="text-muted-foreground text-sm">
+            {footerConfig.info.label}
+          </p>
+          <div class="flex flex-col space-y-1 font-mono text-xs">
+            <span>{footerConfig.info.address.department}</span>
+            <span>{footerConfig.info.address.street}</span>
+            <span
+              >{footerConfig.info.address.postalCode}
+              {footerConfig.info.address.city}</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <Column title={footerConfig.contact.subtitle}>
+        {
+          footerConfig.contact.links.map((link) => (
+            <a
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center gap-2 hover:underline"
+            >
+              <Icon name={link.icon} class="size-4" />
+              <span>{link.label}</span>
+            </a>
+          ))
+        }
+      </Column>
+
+      <Column title={footerConfig.status.subtitle} class="font-mono">
+        {
+          footerConfig.status.rows.map((row) => (
+            <div class="flex justify-between">
+              <span class="text-muted-foreground">{row.label}</span>
+              <span class="text-success">{row.value}</span>
+            </div>
+          ))
+        }
+      </Column>
+    </div>
+
+    <div class="border-border mt-8 border-t pt-8 text-center">
+      <p class="text-muted-foreground text-sm">
+        {COPYRIGHT_SIGN}
+        {footerConfig.copyright.year}
+        {footerConfig.copyright.holder}
+        {COPYRIGHT_SEPARATOR}
+        <span class="font-mono">
+          {footerConfig.copyright.description}
+        </span>
+      </p>
+    </div>
+  </div>
+</footer>
