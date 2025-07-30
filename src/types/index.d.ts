@@ -1,5 +1,7 @@
 export type IconName = `lucide:${string}` | `simple-icons:${string}`;
 
+export type TWColor = "blue" | "green" | "red" | "yellow" | "purple" | "orange";
+
 export interface FooterConfig {
   copyright: {
     year: number;
@@ -47,5 +49,50 @@ export interface HeaderConfig {
     label: string;
     href: string;
     icon?: IconName;
+  };
+}
+
+export interface HomePageConfig {
+  hero: {
+    code: string;
+    title: {
+      main: string;
+      sub: string;
+    };
+    description: string;
+    stats: string[];
+    cta: {
+      primary: {
+        label: string;
+        href: string;
+      };
+      secondary: {
+        label: string;
+        href: string;
+      };
+    };
+    terminal: {
+      title: string;
+      command: string;
+      loadingText: string;
+      sections: {
+        name: string;
+        status: string;
+      }[];
+      footerText: string;
+    };
+  };
+  sections: {
+    code: string;
+    title: string;
+    description: string;
+    cards: {
+      title: string;
+      code: string;
+      description: string;
+      labels: string[];
+      color: TWColor;
+      icon: IconName;
+    }[];
   };
 }

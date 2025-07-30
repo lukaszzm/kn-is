@@ -1,0 +1,29 @@
+---
+interface Props {
+  title: string;
+  class?: string;
+}
+
+const { title, class: className } = Astro.props;
+---
+
+<div
+  class:list={[
+    `border-border bg-popover overflow-hidden rounded-lg border font-mono`,
+    className,
+  ]}
+>
+  <div
+    class="border-border bg-muted flex items-center gap-2 border-b px-4 py-2"
+  >
+    <div class="flex gap-1">
+      <div class="bg-destructive size-3 rounded-full"></div>
+      <div class="bg-warning size-3 rounded-full"></div>
+      <div class="bg-success size-3 rounded-full"></div>
+    </div>
+    <span class="text-muted-foreground text-sm">{title}</span>
+  </div>
+  <div class="text-foreground bg-card p-4">
+    <slot />
+  </div>
+</div>

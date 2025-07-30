@@ -1,0 +1,66 @@
+---
+import Badge from "@/components/ui/badge.astro";
+import { Icon } from "astro-icon/components";
+import type { IconName, TWColor } from "@/types";
+
+interface Props {
+  title: string;
+  code: string;
+  description: string;
+  icon: IconName;
+  color: TWColor;
+  labels?: string[];
+  class?: string;
+}
+
+const {
+  title,
+  description,
+  code,
+  color,
+  icon,
+  labels = [],
+  class: className,
+} = Astro.props;
+---
+
+<div
+  class:list={[
+    `border-muted bg-background rounded-lg border p-4 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl`,
+    className,
+  ]}
+>
+  <div class="mb-2 flex items-center gap-2">
+    <div
+      class:list={[
+        "rounded-lg border p-1.5",
+        color === "red" && "border-red-700 bg-red-100 text-red-700",
+        color === "blue" && "border-blue-700 bg-blue-100 text-blue-700",
+        color === "green" && "border-green-700 bg-green-100 text-green-700",
+        color === "yellow" && "border-yellow-700 bg-yellow-100 text-yellow-700",
+        color === "purple" && "border-purple-700 bg-purple-100 text-purple-700",
+        color === "orange" && "border-orange-700 bg-orange-100 text-orange-700",
+      ]}
+    >
+      <Icon name={icon} size={32} />
+    </div>
+    <div class="text-muted-foreground">
+      <h3 class="text-lg font-semibold">{title}</h3>
+      <span class="font-mono text-xs">
+        {code}
+      </span>
+    </div>
+  </div>
+  <div class="space-y-2">
+    <p class="text-muted-foreground text-sm">{description}</p>
+    {
+      labels.length > 0 ? (
+        <div class="flex gap-2">
+          {labels.map((label) => (
+            <Badge>{label}</Badge>
+          ))}
+        </div>
+      ) : null
+    }
+  </div>
+</div>
