@@ -1,0 +1,59 @@
+---
+import Terminal from "@/components/ui/terminal.astro";
+import { homePageConfig } from "@/config/home";
+---
+
+<section id="about" class="bg-muted px-4 py-24">
+  <div class="container mx-auto max-w-6xl">
+    <div class="grid items-center gap-16 lg:grid-cols-2">
+      <div>
+        <div class="code-text text-muted-foreground mb-4 text-sm">
+          {homePageConfig.about.code}
+        </div>
+        <h2 class="mb-6 text-4xl font-bold">
+          {homePageConfig.about.title}
+        </h2>
+        <p class="text-muted-foreground mb-6 text-lg leading-relaxed">
+          {homePageConfig.about.description}
+        </p>
+        <ul class="text-muted-foreground space-y-3">
+          {
+            homePageConfig.about.bullets.map((bullet) => (
+              <li class="flex items-start gap-3">
+                <div class="bg-foreground mt-2 size-1 rounded-full" />
+                <span>{bullet}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <Terminal title={homePageConfig.about.terminal.title}>
+        <div class="text-muted-foreground space-y-3 text-sm">
+          <div>
+            {homePageConfig.about.terminal.file}
+          </div>
+
+          <div class="mt-6 space-y-3">
+            {
+              homePageConfig.about.terminal.commands.map((command) => (
+                <div>{command}</div>
+              ))
+            }
+          </div>
+
+          <div class="mt-6">
+            {homePageConfig.about.terminal.outputLabel}
+          </div>
+          <div class="text-foreground/90 font-medium">
+            {
+              homePageConfig.about.terminal.outputs.map((output) => (
+                <div>{output}</div>
+              ))
+            }
+          </div>
+        </div>
+      </Terminal>
+    </div>
+  </div>
+</section>
