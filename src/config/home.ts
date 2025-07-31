@@ -2,7 +2,7 @@ import type { HomePageConfig } from "@/types";
 
 export const homePageConfig = {
   hero: {
-    code: "$ ./start -skis-uj",
+    code: "./start -skis-uj",
     title: {
       main: "Studenckie Koło",
       sub: "Informatyki Stosowanej",
@@ -22,7 +22,7 @@ export const homePageConfig = {
     },
     terminal: {
       title: "status_koła.sh",
-      command: "$ ./status_koła --sekcje",
+      command: "./status_koła --sekcje",
       loadingText: "Skanowanie katalogów koła...",
       sections: [
         {
@@ -46,7 +46,7 @@ export const homePageConfig = {
     },
   },
   sections: {
-    code: "$ ls koła_naukowe/",
+    code: "ls koła_naukowe/",
     title: "Koła Naukowe",
     description:
       "Nasze koło naukowe składa się z kilku sekcji, które zajmują się różnymi aspektami informatyki stosowanej.",
@@ -90,14 +90,14 @@ export const homePageConfig = {
     ],
   },
   recentNews: {
-    code: "$ cat aktualnosci.log | tail -3",
+    code: "cat aktualnosci.log | tail -3",
     title: "Aktualności",
     description: "Najnowsze wydarzenia i publikacje naszego koła naukowego.",
     noData:
       "Brak aktualności do wyświetlenia. Bądź na bieżąco z naszymi działaniami!",
   },
   about: {
-    code: "$ whoami",
+    code: "whoami",
     title: "O Kole",
     description:
       "Jesteśmy grupą pasjonatów informatyki, którzy chcą rozwijać swoje umiejętności i dzielić się wiedzą z innymi.",
@@ -126,13 +126,13 @@ export const homePageConfig = {
     },
   },
   join: {
-    code: "$ ./dołącz --koło_naukowe skis-uj",
+    code: "./dołącz --koło_naukowe skis-uj",
     title: "Dołącz do Nas",
     description:
       "Zainteresowany dołączeniem do naszego koła naukowego? Sprawdź, czy spełniasz wymagania i aplikuj!",
     terminal: {
       title: "aplikacja.sh",
-      command: "$ ./aplikuj --wymagania",
+      command: "./aplikuj --wymagania",
       loadingText: "Sprawdzanie kwalifikacji...",
       requirements: [
         "Status studenta lub absolwenta kierunku informatycznego na UJ",
@@ -141,7 +141,7 @@ export const homePageConfig = {
         "Podstawowa znajomość programowania",
         "Chęć nauki i rozwoju",
       ],
-      confirmation: "$ Gotowy do kontynuacji? [T/n]",
+      confirmation: "Gotowy do kontynuacji? [T/n]",
     },
     cta: "Aplikuj teraz",
   },

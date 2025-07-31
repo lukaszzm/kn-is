@@ -1,0 +1,21 @@
+---
+interface Props {
+  typingCursor?: boolean;
+  class?: string;
+}
+
+const PREFIX_SIGN = "$";
+
+const { class: className, typingCursor } = Astro.props;
+---
+
+<div
+  class:list={[
+    "text-muted-foreground mb-4 font-mono text-sm",
+    typingCursor && "typing-cursor",
+    className,
+  ]}
+>
+  {PREFIX_SIGN}
+  <slot />
+</div>

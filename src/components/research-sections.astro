@@ -1,4 +1,5 @@
 ---
+import Card from "@/components/ui/card.astro";
 import Code from "@/components/ui/code.astro";
 import Description from "@/components/ui/description.astro";
 import Section from "@/components/ui/section.astro";
@@ -6,20 +7,20 @@ import Subtitle from "@/components/ui/subtitle.astro";
 import { homePageConfig } from "@/config/home";
 ---
 
-<Section id="recent-news">
+<Section id="research-sections" variant="muted">
   <div class="space-y-4 text-center">
     <Code>
-      {homePageConfig.recentNews.code}
+      {homePageConfig.sections.code}
     </Code>
-    <Subtitle>{homePageConfig.recentNews.title}</Subtitle>
+    <Subtitle>
+      {homePageConfig.sections.title}
+    </Subtitle>
     <Description>
-      {homePageConfig.recentNews.description}
+      {homePageConfig.sections.description}
     </Description>
   </div>
 
-  <div
-    class="bg-muted border-border text-muted-foreground rounded-md border p-6"
-  >
-    {homePageConfig.recentNews.noData}
+  <div class="grid gap-8 md:grid-cols-2">
+    {homePageConfig.sections.cards.map((card) => <Card {...card} />)}
   </div>
 </Section>
