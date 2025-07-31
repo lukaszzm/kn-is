@@ -1,5 +1,6 @@
 ---
 import Column from "@/components/ui/column.astro";
+import Link from "@/components/ui/link.astro";
 import Logo from "@/components/ui/logo.astro";
 
 import { footerConfig } from "@/config/footer";
@@ -29,18 +30,22 @@ const COPYRIGHT_SEPARATOR = " • ";
         </div>
       </div>
 
-      <Column title={footerConfig.contact.subtitle}>
+      <Column
+        title={footerConfig.contact.subtitle}
+        contentClass="flex flex-col gap-0.5 items-start"
+      >
         {
           footerConfig.contact.links.map((link) => (
-            <a
+            <Link
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              class="flex items-center gap-2 hover:underline"
+              variant="plain"
+              size="xs"
             >
               <Icon name={link.icon} class="size-4" />
               <span>{link.label}</span>
-            </a>
+            </Link>
           ))
         }
       </Column>

@@ -7,10 +7,6 @@ export const headerConfig = {
   },
   navigationLinks: [
     {
-      label: "O nas",
-      href: "#",
-    },
-    {
       label: "Aktualności",
       href: "#",
     },
@@ -26,6 +22,5 @@ export const headerConfig = {
   cta: {
     label: "Dołącz",
     href: "#",
-    icon: "lucide:code",
   },
 } as const satisfies HeaderConfig;

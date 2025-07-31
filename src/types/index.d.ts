@@ -48,17 +48,13 @@ export interface HeaderConfig {
   cta: {
     label: string;
     href: string;
-    icon?: IconName;
   };
 }
 
 export interface HomePageConfig {
   hero: {
     code: string;
-    title: {
-      main: string;
-      sub: string;
-    };
+    title: string;
     description: string;
     stats: string[];
     cta: {

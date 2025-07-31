@@ -3,7 +3,6 @@ import Link from "@/components/ui/link.astro";
 import Logo from "@/components/ui/logo.astro";
 
 import { headerConfig } from "@/config/header";
-import { Icon } from "astro-icon/components";
 ---
 
 <header
@@ -20,23 +19,19 @@ import { Icon } from "astro-icon/components";
       <Logo />
     </a>
 
-    <nav class="hidden items-center space-x-8 md:flex">
-      {
-        headerConfig.navigationLinks.map((link) => (
-          <Link href={link.href} variant="ghost">
-            {link.label}
-          </Link>
-        ))
-      }
-    </nav>
-
-    <Link href={headerConfig.cta.href}>
-      {
-        headerConfig.cta.icon && (
-          <Icon name={headerConfig.cta.icon} class="size-4" />
-        )
-      }
-      {headerConfig.cta.label}
-    </Link>
+    <div class="flex space-x-8">
+      <nav class="hidden items-center space-x-8 md:flex">
+        {
+          headerConfig.navigationLinks.map((link) => (
+            <Link href={link.href} variant="nav">
+              {link.label}
+            </Link>
+          ))
+        }
+      </nav>
+      <Link href={headerConfig.cta.href} variant="subtle">
+        {headerConfig.cta.label}
+      </Link>
+    </div>
   </div>
 </header>

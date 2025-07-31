@@ -2,16 +2,19 @@
 interface Props {
   title: string;
   class?: string;
+  contentClass?: string;
 }
 
-const { title, class: className } = Astro.props;
+const { title, class: className, contentClass: contentClassName } = Astro.props;
 ---
 
 <div class:list={["space-y-4", className]}>
   <h3 class="font-mono font-semibold">
     {title}
   </h3>
-  <div class="text-muted-foreground space-y-2 text-sm">
+  <div
+    class:list={["text-muted-foreground space-y-2 text-sm", contentClassName]}
+  >
     <slot />
   </div>
 </div>

@@ -3,10 +3,7 @@ import type { HomePageConfig } from "@/types";
 export const homePageConfig = {
   hero: {
     code: "./start -skis-uj",
-    title: {
-      main: "Studenckie Koło",
-      sub: "Informatyki Stosowanej",
-    },
+    title: "Studenckie Koło Informatyki Stosowanej UJ",
     description:
       "Studenckie koło naukowe zajmujące się poszerzaniem wiedzy w dziedzinie informatyki stosowanej.",
     stats: ["12 członków", "4 koła naukowe", "3 projekty"],
