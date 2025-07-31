@@ -48,33 +48,31 @@ import { homePageConfig } from "@/config/home";
         </div>
       </div>
 
-      <div class="space-y-4">
-        <Terminal title={homePageConfig.hero.terminal.title}>
-          <div class="space-y-2">
-            <div class="text-muted-foreground">
-              {homePageConfig.hero.terminal.command}
-            </div>
-            <div class="text-muted-foreground/80 text-sm">
-              {homePageConfig.hero.terminal.loadingText}
-            </div>
-            <div class="mt-4 space-y-1">
-              {
-                homePageConfig.hero.terminal.sections.map((section) => (
-                  <div class="flex justify-between text-sm">
-                    <span>{section.name}</span>
-                    <span class="text-success-contrast">{section.status}</span>
-                  </div>
-                ))
-              }
-            </div>
-            <div class="border-border/70 mt-4 border-t pt-2">
-              <span class="text-muted-foreground text-sm">
-                {homePageConfig.hero.terminal.footerText}
-              </span>
-            </div>
+      <Terminal title={homePageConfig.hero.terminal.title}>
+        <div class="space-y-2">
+          <div class="text-muted-foreground">
+            {homePageConfig.hero.terminal.command}
           </div>
-        </Terminal>
-      </div>
+          <div class="text-muted-foreground/80 text-sm">
+            {homePageConfig.hero.terminal.loadingText}
+          </div>
+          <div class="mt-4 space-y-1">
+            {
+              homePageConfig.hero.terminal.sections.map((section) => (
+                <div class="flex justify-between text-sm">
+                  <span>{section.name}</span>
+                  <span class="text-success-contrast">{section.status}</span>
+                </div>
+              ))
+            }
+          </div>
+          <div class="border-border/70 mt-4 border-t pt-2">
+            <span class="text-muted-foreground text-sm">
+              {homePageConfig.hero.terminal.footerText}
+            </span>
+          </div>
+        </div>
+      </Terminal>
     </div>
   </div>
 </section>

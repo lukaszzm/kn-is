@@ -89,4 +89,60 @@ export const homePageConfig = {
       },
     ],
   },
+  recentNews: {
+    code: "$ cat aktualnosci.log | tail -3",
+    title: "Aktualności",
+    description: "Najnowsze wydarzenia i publikacje naszego koła naukowego.",
+    noData:
+      "Brak aktualności do wyświetlenia. Bądź na bieżąco z naszymi działaniami!",
+  },
+  about: {
+    code: "$ whoami",
+    title: "O Kole",
+    description:
+      "Jesteśmy grupą pasjonatów informatyki, którzy chcą rozwijać swoje umiejętności i dzielić się wiedzą z innymi.",
+    bullets: [
+      "Współpraca badawcza w wielu dziedzinach informatyki",
+      "Cotygodniowe seminaria z ekspertami z przemysłu i akademii",
+      "Programy mentorskie dla studentów licencjackich",
+      "Możliwości publikacji w najlepszych czasopismach",
+    ],
+    terminal: {
+      title: "statystyki.py",
+      file: "#!/usr/bin/env python3",
+      commands: [
+        "import kolo_naukowe as kn",
+        "stats = kn.pobierz_statystyki_czlonkow()",
+        'print(f"Łączna liczba członków: {stats.total}")',
+        'print(f"Aktywne projekty: {stats.projects}")',
+        'print(f"Publikacje: {stats.papers}")',
+      ],
+      outputLabel: "# Wynik:",
+      outputs: [
+        "Łączna liczba członków: 150",
+        "Aktywne projekty: 25",
+        "Publikacje: 89",
+      ],
+    },
+  },
+  join: {
+    code: "$ ./dołącz --koło_naukowe skis-uj",
+    title: "Dołącz do Nas",
+    description:
+      "Zainteresowany dołączeniem do naszego koła naukowego? Sprawdź, czy spełniasz wymagania i aplikuj!",
+    terminal: {
+      title: "aplikacja.sh",
+      command: "$ ./aplikuj --wymagania",
+      loadingText: "Sprawdzanie kwalifikacji...",
+      requirements: [
+        "Status studenta lub absolwenta kierunku informatycznego na UJ",
+        "Zainteresowanie badaniami informatycznymi",
+        "Nastawienie na współpracę",
+        "Podstawowa znajomość programowania",
+        "Chęć nauki i rozwoju",
+      ],
+      confirmation: "$ Gotowy do kontynuacji? [T/n]",
+    },
+    cta: "Aplikuj teraz",
+  },
 } as const satisfies HomePageConfig;

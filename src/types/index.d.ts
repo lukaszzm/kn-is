@@ -95,4 +95,36 @@ export interface HomePageConfig {
       icon: IconName;
     }[];
   };
+  recentNews: {
+    code: string;
+    title: string;
+    description: string;
+    noData: string;
+  };
+  about: {
+    code: string;
+    title: string;
+    description: string;
+    bullets: string[];
+    terminal: {
+      title: string;
+      file: string;
+      commands: string[];
+      outputLabel: string;
+      outputs: string[];
+    };
+  };
+  join: {
+    code: string;
+    title: string;
+    description: string;
+    terminal: {
+      title: string;
+      command: string;
+      loadingText: string;
+      requirements: string[];
+      confirmation: string;
+    };
+    cta: string;
+  };
 }
