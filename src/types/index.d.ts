@@ -121,6 +121,10 @@ export interface HomePageConfig {
       requirements: string[];
       confirmation: string;
     };
-    cta: string;
+    cta: {
+      label: string;
+      href: string;
+      icon: IconName;
+    };
   };
 }

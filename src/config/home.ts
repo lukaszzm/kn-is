@@ -140,6 +140,10 @@ export const homePageConfig = {
       ],
       confirmation: "Gotowy do kontynuacji? [T/n]",
     },
-    cta: "Aplikuj teraz",
+    cta: {
+      href: "#",
+      label: "Aplikuj teraz",
+      icon: "lucide:chevron-right",
+    },
   },
 } as const satisfies HomePageConfig;

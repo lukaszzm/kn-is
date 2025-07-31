@@ -50,9 +50,9 @@ const CHECK_MARK = "✓";
       </div>
     </Terminal>
 
-    <Link href="#">
-      <Icon name="lucide:mail" />
-      {homePageConfig.join.cta}
+    <Link href={homePageConfig.join.cta.href} size="lg">
+      {homePageConfig.join.cta.label}
+      <Icon name={homePageConfig.join.cta.icon} />
     </Link>
   </div>
 </Section>
