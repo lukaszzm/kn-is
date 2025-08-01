@@ -49,4 +49,15 @@ export const footerConfig = {
       },
     ],
   },
+  theme: {
+    ariaLabel: "Zmień motyw",
+    options: {
+      light: {
+        ariaLabel: "Wybierz motyw jasny",
+      },
+      dark: {
+        ariaLabel: "Wybierz motyw ciemny",
+      },
+    },
+  },
 } as const satisfies FooterConfig;

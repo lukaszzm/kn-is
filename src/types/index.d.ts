@@ -34,6 +34,17 @@ export interface FooterConfig {
       value: string;
     }[];
   };
+  theme: {
+    ariaLabel: string;
+    options: {
+      light: {
+        ariaLabel: string;
+      };
+      dark: {
+        ariaLabel: string;
+      };
+    };
+  };
 }
 
 export interface HeaderConfig {

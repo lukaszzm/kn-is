@@ -1,0 +1,102 @@
+---
+import { footerConfig } from "@/config/footer";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+
+const buttonBaseClasses =
+  "hover:bg-muted focus-visible:border-ring focus-visible:ring-ring text-muted-foreground hover:text-foreground data-[active='true']:text-foreground inline-flex shrink-0 cursor-pointer items-center justify-center gap-2 p-2 text-sm font-medium whitespace-nowrap outline transition-all outline-none focus-visible:ring-[3px] [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4";
+---
+
+<div
+  class:list={[
+    "border-border flex items-center justify-start self-start justify-self-start rounded-full border",
+    className,
+  ]}
+  role="radiogroup"
+  aria-label={footerConfig.theme.ariaLabel}
+>
+  <button
+    id="theme-toggle-light"
+    class:list={[buttonBaseClasses, "rounded-l-full"]}
+    role="radio"
+    aria-checked="false"
+    data-theme="light"
+  >
+    <span class="sr-only">
+      {footerConfig.theme.options.light.ariaLabel}
+    </span>
+    <Icon name="lucide:sun" />
+  </button>
+
+  <button
+    id="theme-toggle-dark"
+    class:list={[buttonBaseClasses, "rounded-r-full"]}
+    role="radio"
+    aria-checked="false"
+    data-theme="dark"
+  >
+    <span class="sr-only">
+      {footerConfig.theme.options.dark.ariaLabel}
+    </span>
+    <Icon name="lucide:moon" />
+  </button>
+</div>
+
+<script is:inline>
+  function getTheme() {
+    const storedTheme = localStorage?.getItem("theme") ?? "";
+
+    if (["dark", "light"].includes(storedTheme)) {
+      return storedTheme;
+    }
+
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return "dark";
+    }
+
+    return "light";
+  }
+
+  function setTheme(theme) {
+    const html = document.documentElement;
+    const isDark = theme === "dark";
+
+    html.classList.toggle("dark", isDark);
+    localStorage?.setItem("theme", theme);
+    updateButtonStates(theme);
+  }
+
+  function updateButtonStates(activeTheme) {
+    const lightButton = document.getElementById("theme-toggle-light");
+    const darkButton = document.getElementById("theme-toggle-dark");
+
+    [lightButton, darkButton].forEach((button) => {
+      if (!button) {
+        return;
+      }
+
+      const buttonTheme = button.dataset.theme;
+      const isActive = buttonTheme === activeTheme;
+
+      button.setAttribute("data-active", isActive.toString());
+      button.setAttribute("aria-checked", isActive.toString());
+    });
+  }
+
+  function initThemeToggle() {
+    const lightButton = document.getElementById("theme-toggle-light");
+    const darkButton = document.getElementById("theme-toggle-dark");
+    const currentTheme = getTheme();
+
+    setTheme(currentTheme);
+    lightButton?.addEventListener("click", () => setTheme("light"));
+    darkButton?.addEventListener("click", () => setTheme("dark"));
+  }
+
+  initThemeToggle();
+</script>
